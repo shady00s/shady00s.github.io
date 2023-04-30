@@ -1,6 +1,6 @@
 import express from "express";
 import cors from "cors";
-import moviesRoutes from './routes/moviesRoute.js';
+import setupProfileRoutes from "./routes/setup_profile_routes/router.js";
 const app = express();
 app.use(cors());
 app.use(express.json())
@@ -17,6 +17,8 @@ app.use((req, res, next) => {
     next();
 })
 
-app.use('/', moviesRoutes)
+app.use("/",setupProfileRoutes)
 
-app.listen(4500)
+app.listen(4001,()=>{
+    console.log("connected");
+})
